@@ -1,16 +1,17 @@
 import styled from 'styled-components';
-import ButtonMui from '@mui/material/Button';
+import ButtonMui from '@material-ui/core/Button';
+
 import { rotate } from '../../styles/LogoAnimation';
 
 export const HeaderStyled = styled.header`
-  background-color: #282c34;
+  background-color: ${({ theme }) => theme.primaryBg};
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: ${({ theme }) => theme.primaryTxt};
 
   .custom {
     font-size: 16px;
@@ -32,14 +33,14 @@ export const Link = styled.a`
 `;
 
 export const Button = styled(ButtonMui)`
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: red;
-  background-color: black;
-  padding: 5px 25px;
-  font-weight: bold;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  color: ${({ theme }) => theme.button.color} !important;
+  background-color: ${({ theme }) => theme.button.bg} !important;
+  padding: 5px 25px !important;
+  font-weight: bold !important;
 
   &:hover {
-    background-color: white;
+    background-color: white !important;
   }
 `;

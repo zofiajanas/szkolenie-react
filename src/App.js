@@ -1,8 +1,10 @@
+import { ThemeProvider } from 'styled-components';
 import './App.css';
 import Header from './components/Header/Header';
 import Menu from './components/Menu';
 
 import logo from './logo.svg';
+import { themeDark, themeLight } from './styles/theme';
 
 const menuItems = [
   { id: 1, name: 'Strona główna', url: '/' },
@@ -17,14 +19,18 @@ const menuItemsSecondary = [
 ];
 
 function App() {
+  const themeType = 'dark';
+
   return (
-    <div className='App'>
-      <Header logo={logo} />
-      <Menu items={menuItems} />
-      <Menu items={menuItemsSecondary} column />
-      {/* <Main/>
+    <ThemeProvider theme={themeType === 'light' ? themeLight : themeDark}>
+      <div className='App'>
+        <Header logo={logo} />
+        <Menu items={menuItems} />
+        <Menu items={menuItemsSecondary} column />
+        {/* <Main/>
       <Footer/> */}
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
