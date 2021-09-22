@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Menu from './components/Menu';
 
 import logo from './logo.svg';
+import GlobalStyle from './styles/GlobalStyle';
 import { themeDark, themeLight } from './styles/theme';
 
 const menuItems = [
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <ThemeProvider theme={themeType === 'light' ? themeLight : themeDark}>
+      <GlobalStyle />
       <div className='App'>
         <Header logo={logo} />
         <Menu items={menuItems} />
