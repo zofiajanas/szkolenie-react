@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Menu from './components/Menu';
+
+import logo from './logo.svg';
+
+const menuItems = [
+  { id: 1, name: 'Strona główna', url: '/' },
+  { id: 2, name: 'Produkty', url: '/produts' },
+  { id: 3, name: 'Kontakt', url: '/contact' },
+];
+
+const menuItemsSecondary = [
+  { id: 1, name: 'Strona główna', url: '/' },
+  { id: 2, name: 'Zabawki', url: '/toys' },
+  { id: 3, name: 'Lokalizacja', url: '/location' },
+];
 
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+      <Header logo={logo} />
+      <Menu items={menuItems} />
+      <Menu items={menuItemsSecondary} />
+      {/* <Main/>
+      <Footer/> */}
     </div>
   );
 }
