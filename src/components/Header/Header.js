@@ -19,6 +19,8 @@ const Header = props => {
       >
         Learn React
       </S.Link>
+      <span className='custom'>tekst z klasą!</span>
+      <S.Button>Kliknij</S.Button>
     </S.HeaderStyled>
   );
 };
