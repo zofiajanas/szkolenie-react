@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import ButtonMui from '@mui/material/Button';
+import { rotate } from '../../styles/LogoAnimation';
 
 export const HeaderStyled = styled.header`
   background-color: #282c34;
@@ -17,7 +18,12 @@ export const HeaderStyled = styled.header`
   }
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  height: 40vmin;
+  pointer-events: none;
+
+  animation: ${rotate} infinite 20s linear;
+`;
 
 export const Paragraph = styled.p``;
 
