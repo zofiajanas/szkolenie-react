@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Menu from './components/Menu';
 
 import logo from './logo.svg';
@@ -21,7 +21,7 @@ function App() {
     <div className='App'>
       <Header logo={logo} />
       <Menu items={menuItems} />
-      <Menu items={menuItemsSecondary} />
+      <Menu items={menuItemsSecondary} column />
       {/* <Main/>
       <Footer/> */}
     </div>
