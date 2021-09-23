@@ -1,4 +1,5 @@
 import React from 'react';
+import UserHeader from '../User/UserHeader';
 
 import * as S from './Header.css';
 
@@ -6,6 +7,7 @@ const Header = props => {
   // const Header = ({ logo }) => {
   return (
     <S.HeaderStyled className='App-header'>
+      <UserHeader user={props.user} />
       <S.Image src={props.logo} className='App-logo' alt='logo' />
       {/* <img src={logo} className='App-logo' alt='logo' /> */}
       <S.Paragraph>

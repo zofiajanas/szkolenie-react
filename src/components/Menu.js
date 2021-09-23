@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import UserMenu from './User/UserMenu';
 
 const MenuStyled = styled.menu`
   display: flex;
@@ -22,7 +23,7 @@ const MenuItem = styled.li`
   }
 `;
 
-const Menu = ({ items, column }) => {
+const Menu = ({ items, column, user }) => {
   /*
       Nie jest to poprawne użycie znacznika "a". W React do nawigowania dostępne są odpowiednie biblioteki, np. react-router-dom, który udostępnia nam komponent "Link".
       Do nawigowania wewnątrz aplikacji (tak jak np. w menu strony), powinniśmy skorzystać z niego. Znacznik a służy do odnośników "zewnętrznych", np.: https://www.google.com/.
@@ -37,6 +38,7 @@ const Menu = ({ items, column }) => {
 
   return (
     <nav>
+      <UserMenu user={user} />
       <MenuStyled column={column}>{menuRender}</MenuStyled>
     </nav>
   );

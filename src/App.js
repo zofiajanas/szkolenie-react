@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import './App.css';
 import Header from './components/Header/Header';
 import Menu from './components/Menu';
+import UserUp from './components/User/UserUp';
 
 import logo from './logo.svg';
 import GlobalStyle from './styles/GlobalStyle';
@@ -23,6 +24,8 @@ const menuItemsSecondary = [
 function App() {
   const [isLightTheme, setLightTheme] = useState(false);
 
+  const user = 'Wojtek';
+
   const handleChangeTheme = () => {
     console.log('idzie funkcja');
     setLightTheme(prev => !prev);
@@ -40,10 +43,11 @@ function App() {
     <ThemeProvider theme={isLightTheme ? themeLight : themeDark}>
       <GlobalStyle />
       <div className='App'>
+        <UserUp user={user} isLightTheme={isLightTheme} />
         <button onClick={handleChangeTheme}>zmień theme</button>
-        <Header logo={logo} />
-        <Menu items={menuItems} />
-        <Menu items={menuItemsSecondary} column />
+        <Header logo={logo} user={user} />
+        <Menu items={menuItems} user={user} />
+        <Menu items={menuItemsSecondary} column user={user} />
         {/* <Main/>
       <Footer/> */}
       </div>
