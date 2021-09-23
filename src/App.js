@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import './App.css';
 import Header from './components/Header/Header';
 import Menu from './components/Menu';
-import UserUp from './components/User/UserUp';
+import UpLabel from './components/UpLabel/UpLabel';
+import { UserContext } from './components/User/UserContext';
 
 import logo from './logo.svg';
 import GlobalStyle from './styles/GlobalStyle';
@@ -22,14 +24,7 @@ const menuItemsSecondary = [
 ];
 
 function App() {
-  const [isLightTheme, setLightTheme] = useState(false);
-
-  const user = 'Wojtek';
-
-  const handleChangeTheme = () => {
-    console.log('idzie funkcja');
-    setLightTheme(prev => !prev);
-  };
+  const { isLightTheme, setLightTheme } = useContext(UserContext);
 
   useEffect(() => {
     console.log('lecę');
@@ -37,17 +32,16 @@ function App() {
     // return () => {
     //   cleanup
     // }
-  }, [isLightTheme]);
+  }, [isLightTheme, setLightTheme]);
 
   return (
     <ThemeProvider theme={isLightTheme ? themeLight : themeDark}>
       <GlobalStyle />
       <div className='App'>
-        <UserUp user={user} isLightTheme={isLightTheme} />
-        <button onClick={handleChangeTheme}>zmień theme</button>
-        <Header logo={logo} user={user} />
-        <Menu items={menuItems} user={user} />
-        <Menu items={menuItemsSecondary} column user={user} />
+        <UpLabel />
+        <Header logo={logo} />
+        <Menu items={menuItems} />
+        <Menu items={menuItemsSecondary} column />
         {/* <Main/>
       <Footer/> */}
       </div>
