@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import './App.css';
 import Header from './components/Header/Header';
@@ -20,12 +21,26 @@ const menuItemsSecondary = [
 ];
 
 function App() {
-  const themeType = 'dark';
+  const [isLightTheme, setLightTheme] = useState(false);
+
+  const handleChangeTheme = () => {
+    console.log('idzie funkcja');
+    setLightTheme(prev => !prev);
+  };
+
+  useEffect(() => {
+    console.log('lecę');
+
+    // return () => {
+    //   cleanup
+    // }
+  }, [isLightTheme]);
 
   return (
-    <ThemeProvider theme={themeType === 'light' ? themeLight : themeDark}>
+    <ThemeProvider theme={isLightTheme ? themeLight : themeDark}>
       <GlobalStyle />
       <div className='App'>
+        <button onClick={handleChangeTheme}>zmień theme</button>
         <Header logo={logo} />
         <Menu items={menuItems} />
         <Menu items={menuItemsSecondary} column />

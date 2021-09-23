@@ -1,5 +1,5 @@
 export const themeDark = {
-  primaryText: 'white',
+  primaryTxt: '#fff',
   primaryBg: '#282c34',
   button: {
     color: 'red',

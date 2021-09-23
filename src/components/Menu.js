@@ -30,7 +30,7 @@ const Menu = ({ items, column }) => {
       */
 
   const menuRender = items.map(item => (
-    <MenuItem column={column}>
+    <MenuItem column={column} key={item.id}>
       <a href={item.url}>{item.name}</a>
     </MenuItem>
   ));
