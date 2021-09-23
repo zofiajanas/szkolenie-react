@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import './App.css';
+import CharactersList from './components/CharactersList/CharactersList';
 import Header from './components/Header/Header';
 import Menu from './components/Menu';
 import UpLabel from './components/UpLabel/UpLabel';
@@ -42,6 +43,7 @@ function App() {
         <Header logo={logo} />
         <Menu items={menuItems} />
         <Menu items={menuItemsSecondary} column />
+        <CharactersList />
         {/* <Main/>
       <Footer/> */}
       </div>
