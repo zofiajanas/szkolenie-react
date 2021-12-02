@@ -8,6 +8,7 @@ const UpLabel = () => {
   const handleChangeTheme = () => {
     setLightTheme(prev => !prev);
   };
+
   return (
     <>
       <UserUp />

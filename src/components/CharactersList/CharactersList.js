@@ -3,12 +3,14 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
 
-import { API_HP_CHARACTERS } from '../../api';
+import { API_HP_CHARACTERS, API_HP_CHARACTERS_HOUSE } from '../../api';
 import SearchCharacter from './SearchCharacter';
+import HouseButtons from './HouseButtons';
 
 const Wrapper = styled.div`
   background-color: #250101;
   padding-top: 40px;
+  min-height: 100vh;
 `;
 
 const List = styled.ul`
@@ -21,7 +23,7 @@ const List = styled.ul`
 `;
 
 const SingleItem = styled.li`
-  width: 30%;
+  width: 25%;
   background-color: #e9e7e7;
   margin: 20px;
   padding: 40px;
@@ -61,6 +63,13 @@ const CharactersList = () => {
     setCharacter(searchResult);
   }, 500);
 
+  const getHouse = async house => {
+    const resp = await fetch(`${API_HP_CHARACTERS_HOUSE}${house}`);
+    const data = await resp.json();
+    setCharacter(data);
+    setBasicCharacter(data);
+  };
+
   useEffect(() => {
     getCharacters();
 
@@ -80,6 +89,7 @@ const CharactersList = () => {
   return (
     <Wrapper>
       <SearchCharacter searchCharacter={searchCharacter} />
+      <HouseButtons getHouse={getHouse} getCharacters={getCharacters} />
       <List>{charactersRender}</List>
     </Wrapper>
   );
